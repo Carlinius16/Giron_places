@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Explore Girón</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+  url("https://upload.wikimedia.org/wikipedia/commons/6/6e/Giron_Santander_Colombia.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,.15);
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 15px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+}
+
+.modal-content {
+  background: white;
+  max-width: 750px;
+  max-height: 85vh;
+  overflow-y: auto;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+
+.modal img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.close {
+  font-size: 28px;
+  float: right;
+  cursor: pointer;
+}
+
+.map-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: #1a73e8;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.description {
+  margin-top: 15px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.menu {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.menu li {
+  margin-bottom: 5px;
+}
+
+.highlight {
+  color: #c0392b;
+  font-weight: bold;
+}
+
+footer {
+  background: #1e1e1e;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <div>
+    <h1>Explore Girón</h1>
+    <p>Culture, food and tradition of Santander</p>
+  </div>
+</div>
+
+<!-- PLACES -->
+<section>
+<h2>Girón’s Places</h2>
+<div class="grid">
+
+<div class="card" onclick="openModal('Parque de las Nieves',
+'https://lh3.googleusercontent.com/gps-cs-s/AHVAwerCojG258Fm9IMnEY2x4sxvy2d2CpL8AH1nEqNYqe6w48IJXJt9c7XvmHLBhkv0gM8ABOsV7cfwM9vFtx_DKOu9gQJXQZ5UMWocG4NgVmq8nk3RuwvZ-dkl5QQKIzeGxRC1bHI6=w408-h306-k-no',
+'https://www.google.com/maps/search/Parque+de+las+Nieves+Girón+Santander')">
+<img src=https://lh3.googleusercontent.com/gps-cs-s/AHVAwerCojG258Fm9IMnEY2x4sxvy2d2CpL8AH1nEqNYqe6w48IJXJt9c7XvmHLBhkv0gM8ABOsV7cfwM9vFtx_DKOu9gQJXQZ5UMWocG4NgVmq8nk3RuwvZ-dkl5QQKIzeGxRC1bHI6=w408-h306-k-no>
+<h3>Parque de las Nieves</h3>
+</div>
+
+<div class="card" onclick="openModal('Basílica Menor San Juan de Girón',
+'https://lh3.googleusercontent.com/gps-cs-s/AHVAweokak9LI2v4r-mK7Tc8-v02pm-fwFRk2Ys0AbRAbqpCEGYkvmcr9kfiH98zeuO98p5YUre4eVPS2o_g8XflU1k3MMS6ErwfIcP6kQlD7FY0fUdOS31pFC42RkLWGsvzybvZjFpq=w408-h306-k-nog',
+'https://www.google.com/maps/search/Basílica+Menor+San+Juan+de+Girón')">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweokak9LI2v4r-mK7Tc8-v02pm-fwFRk2Ys0AbRAbqpCEGYkvmcr9kfiH98zeuO98p5YUre4eVPS2o_g8XflU1k3MMS6ErwfIcP6kQlD7FY0fUdOS31pFC42RkLWGsvzybvZjFpq=w408-h306-k-no">
+<h3>Basílica Menor San Juan de Girón</h3>
+</div>
+
+<div class="card" onclick="openModal('Puerta de Girón',
+'https://lh3.googleusercontent.com/gps-cs-s/AHVAwepWNvIr1WRSZvECKVlpSggd07dsbkgA5i-00J7fw60fC-aITFBxq5QheRQIoC3QglNjFNqPOm8ek-Vppk_YuIyjFQ1aeEcidcxurb-xKMPKw4knkSA7q_YIGxdqiwCQkA4qgGE7jiVHxAWk=w408-h306-k-no',
+'https://www.google.com/maps/search/Puerta+de+Girón+Santander')">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwepWNvIr1WRSZvECKVlpSggd07dsbkgA5i-00J7fw60fC-aITFBxq5QheRQIoC3QglNjFNqPOm8ek-Vppk_YuIyjFQ1aeEcidcxurb-xKMPKw4knkSA7q_YIGxdqiwCQkA4qgGE7jiVHxAWk=w408-h306-k-no">
+<h3>Puerta de Girón</h3>
+</div>
+
+<div class="card" onclick="openModal('Parque Peralta',
+'https://lh3.googleusercontent.com/gps-cs-s/AHVAwer8k-zVnjWWCDGQ50OKLo0OQn3cEtYav-3CTIUfbP970jkOVuSuPl2rxlPus1cpdFtOdqh5XaEx9tXVKQrXupnHOugi2-XR9Pmtmxz8JEpE0mZ16EFF-FDOCyGYqraDRvrLK4Hh=w408-h307-k-no',
+'https://www.google.com/maps/search/Parque+Peralta+Girón')">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwer8k-zVnjWWCDGQ50OKLo0OQn3cEtYav-3CTIUfbP970jkOVuSuPl2rxlPus1cpdFtOdqh5XaEx9tXVKQrXupnHOugi2-XR9Pmtmxz8JEpE0mZ16EFF-FDOCyGYqraDRvrLK4Hh=w408-h307-k-no">
+<h3>Parque Peralta</h3>
+</div>
+
+<div class="card" onclick="openModal('Capilla de las Nieves',
+'https://lh3.googleusercontent.com/gps-cs-s/AHVAweokqovz_6bJNcdU-nmJXNE7EzsQRY3q7-1gxMcZejJa9gU30mFgRNGmeEuM7xWpwy6yeYXUCWvvAL6t59eS0aIBUzAKC-KyUnsYpuqK4JPD7Q15KpNW9hEwWHI3WZw5MFqYCCQX=w408-h306-k-no',
+'https://www.google.com/maps/search/Capilla+de+las+Nieves+Girón')">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweokqovz_6bJNcdU-nmJXNE7EzsQRY3q7-1gxMcZejJa9gU30mFgRNGmeEuM7xWpwy6yeYXUCWvvAL6t59eS0aIBUzAKC-KyUnsYpuqK4JPD7Q15KpNW9hEwWHI3WZw5MFqYCCQX=w408-h306-k-no">
+<h3>Capilla de las Nieves</h3>
+</div>
+
+<div class="card" onclick="openModal('Sacred Heart of Girón',
+'https://lh3.googleusercontent.com/gps-cs-s/AHVAwer5FAmCukcD0W2wQZs0-qPGb_kO9bco8g0MPZQsYJYwiKN2sj29-h4EJ3la-nM7jrBmbSAHafmyQKho63oyvMwJWiwRynAP1BMhSAnn0-2PEyP95YCDXvxXsxtz9AjseTUpdSrd=w427-h240-k-no',
+'https://www.google.com/maps/search/Sagrado+Corazón+de+Jesús+Girón')">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwer5FAmCukcD0W2wQZs0-qPGb_kO9bco8g0MPZQsYJYwiKN2sj29-h4EJ3la-nM7jrBmbSAHafmyQKho63oyvMwJWiwRynAP1BMhSAnn0-2PEyP95YCDXvxXsxtz9AjseTUpdSrd=w427-h240-k-no">
+<h3>capilla monumento sagrado corazón giron santander</h3>
+</div>
+
+</div>
+</section>
+
+<!-- FOOD -->
+<section>
+<h2>Traditional Food</h2>
+<div class="grid">
+
+<div class="card" onclick="openModal('Fogón Gironés – Mute',
+'https://lh3.googleusercontent.com/gps-cs-s/AHVAwer0YH_VUrUd4OqXvznBmNuSCQIQeVLPOCYHNL0S1X8nV2smSZ99IRy0WpVn1wHmpghK3eK3yHF8WwOnS2QvTwqoRJx-Xkgw1jMbTBEtTD8G8bNHPkrtqHIaVs9tGL5SWfMcXIlF=w408-h306-k-nog',
+'https://www.google.com/maps/search/Fogón+Gironés+Girón')">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwer0YH_VUrUd4OqXvznBmNuSCQIQeVLPOCYHNL0S1X8nV2smSZ99IRy0WpVn1wHmpghK3eK3yHF8WwOnS2QvTwqoRJx-Xkgw1jMbTBEtTD8G8bNHPkrtqHIaVs9tGL5SWfMcXIlF=w408-h306-k-no">
+<h3>Mute – Fogón Gironés</h3>
+</div>
+
+<div class="card" onclick="openModal('Fritanga – La Tía Gloria',
+'https://lh3.googleusercontent.com/gps-cs-s/AHVAwepece_hP0MDNhCWus_-Qgor0t2zGSfEUSUElo7ZjqYZlFuXiwCQXFuiwMyPcmanFZBlqmjFCe-p1554HhO7n-LiHoCE45CG5O1nvqCzn1ZeSIQsfyfDYgpZVCfH1N_ZADV_O8Qx=w408-h306-k-no',
+'https://www.google.com/maps/search/La+Tía+Gloria+Girón')">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwepece_hP0MDNhCWus_-Qgor0t2zGSfEUSUElo7ZjqYZlFuXiwCQXFuiwMyPcmanFZBlqmjFCe-p1554HhO7n-LiHoCE45CG5O1nvqCzn1ZeSIQsfyfDYgpZVCfH1N_ZADV_O8Qx=w408-h306-k-no">
+<h3>Fritanga – La Tía Gloria</h3>
+</div>
+
+<div class="card" onclick="openModal('Pepitoria – El Carajo',
+'https://lh3.googleusercontent.com/gps-cs-s/AHVAweovDuRuwlewbsVBcSdy1yHnmn0-0lsJC9z0DH66epkkmJicIhJoZGsuef3X0JoVRn5GMKOM2F-5MfiZpK09nhjMMbK4eOEoPHfA4Bqv7r1I3XetvxjJr_ckj9oz2FFdeafpEDW98g=w408-h541-k-no',
+'https://www.google.com/maps/search/Restaurante+El+Carajo+Girón')">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweovDuRuwlewbsVBcSdy1yHnmn0-0lsJC9z0DH66epkkmJicIhJoZGsuef3X0JoVRn5GMKOM2F-5MfiZpK09nhjMMbK4eOEoPHfA4Bqv7r1I3XetvxjJr_ckj9oz2FFdeafpEDW98g=w408-h541-k-no">
+<h3>Pepitoria – El Carajo</h3>
+</div>
+
+<div class="card" onclick="openModal('Arepa – La Casona',
+'https://lh3.googleusercontent.com/p/AF1QipP3iru4mLFCC-wRxhjL6a0jPfDgEkK2SFtzUPrt=w408-h271-k-no',
+'https://www.google.com/maps/search/La+Casona+Restaurante+Girón')">
+<img src="https://lh3.googleusercontent.com/p/AF1QipP3iru4mLFCC-wRxhjL6a0jPfDgEkK2SFtzUPrt=w408-h271-k-no">
+<h3>Arepa – La Casona</h3>
+</div>
+
+</div>
+</section>
+
+<!-- CANDY -->
+<section>
+<h2>Local Candy</h2>
+<div class="grid">
+
+<div class="card" onclick="openModal('Dulces El Gironés',
+'https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=PnO5F5z4JyccDdUvPwZodA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=317.17474&pitch=0&thumbfov=100',
+'https://www.google.com/maps/search/Dulces+El+Gironés+Girón')">
+<img src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=PnO5F5z4JyccDdUvPwZodA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=317.17474&pitch=0&thumbfov=100">
+<h3>Dulces El Gironés</h3>
+
+</div>
+
+<div class="card" onclick="openModal('La Tía Gloria – Candy',
+'https://lh3.googleusercontent.com/gps-cs-s/AHVAwerTImxdqiWvXKniufMTEcFxoNqxSHLN7s30_KePVIMx8DitlnhUmkj4u5g1BRGw2WlFwhsBlzZDLV7DMgJnxNPNNzDKbSowWiTgOwK8yvF9uBCPxHfI97MoM2lexkSZSVKx9d-c=w408-h306-k-no',
+'https://maps.app.goo.gl/dYHkSshGqUx3ofkc6')">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwerTImxdqiWvXKniufMTEcFxoNqxSHLN7s30_KePVIMx8DitlnhUmkj4u5g1BRGw2WlFwhsBlzZDLV7DMgJnxNPNNzDKbSowWiTgOwK8yvF9uBCPxHfI97MoM2lexkSZSVKx9d-c=w408-h306-k-no">
+<h3>Obleas la dulce villa</h3>
+</div>
+
+</div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 id="title"></h3>
+<img id="image">
+
+<p class="description" id="description"></p>
+
+<ul class="menu" id="menu"></ul>
+
+<a id="map" class="map-btn" target="_blank">Open in Google Maps</a>
+
+  </div>
+</div>
+
+<footer>
+  <p>© Girón, Santander – Cultural Website</p>
+</footer>
+
+<script>
+const info = {
+  "Parque de las Nieves": {
+    description: "A historic park surrounded by colonial architecture and local life.",
+    menu: ["Main square", "Cultural events"]
+  },
+  "Basílica Menor San Juan de Girón": {
+    description: "Colonial church and main religious symbol of Girón.",
+    menu: ["⭐ Religious heritage", "Colonial architecture"]
+  },
+  "Puerta de Girón": {
+    description: "Historic entrance that represents the colonial identity of Girón.",
+    menu: ["Historic monument"]
+  },
+  "Parque Peralta": {
+    description: "Green space used for rest and social gatherings.",
+    menu: ["Recreation area"]
+  },
+  "Capilla de las Nieves": {
+    description: "Small colonial chapel with strong religious value.",
+    menu: ["Religious architecture"]
+  },
+  "Sacred Heart of Girón": {
+    description: "Religious monument located on a hill overlooking Girón.",
+    menu: ["⭐ Viewpoint", "Religious tourism"]
+  },
+  "Fogón Gironés – Mute": {
+    description: "Traditional Santander soup made with grains and meat.",
+    menu: ["⭐ Mute santandereano", "Carne", "Granos", "Yuca", "Papa criolla", "Arepa santandereana", "Arroz blanco", "Ají casero"]
+
+  },
+  "Fritanga – La Tía Gloria": {
+    description: "Traditional fried meat dish very popular in Santander.",
+    menu: ["⭐ Fritanga santandereana", "Chorizo", "Chicharrón", "Morcilla", "Costilla de cerdo", "Papa criolla", "Yuca frita", "Arepa"]
+
+  },
+  "Pepitoria – El Carajo": {
+    description: "Typical Santander dish prepared with goat meat.",
+    menu: ["⭐ Pepitoria santandereana", "Cabrito", "Arroz blanco", "Yuca cocida", "Arepa santandereana", "Ají tradicional"]
+
+  },
+  "Arepa – La Casona": {
+    description: "Traditional corn arepa prepared in the Santander style.",
+    menu: ["⭐ Arepa santandereana", "Arepa con queso", "Arepa con mantequilla", "Carne oreada", "Chocolate caliente", "Café"]
+
+  },
+  "Dulces El Gironés": {
+    description: "Local shop offering handmade traditional sweets.",
+    menu: ["⭐ Dulces tradicionales", "Panelitas", "Cocadas", "Arequipe artesanal", "Bocadillo", "Dulce de papaya", "Dulce de guayaba"]
+
+  },
+  "Dulce Villa – Candy": {
+    description: "Famous place for obleas and traditional sweets.",
+    menu: ["⭐ Obleas clásicas", "Obleas con arequipe", "Obleas con queso", "Obleas con mora", "Obleas mixtas", "Arequipe", "Cocadas"]
+
+  }
+};
+
+function openModal(title, image, map) {
+    document.body.style.overflow = "hidden";
+
+  document.getElementById("title").innerText = title;
+  document.getElementById("image").src = image;
+  document.getElementById("map").href = map;
+
+  const data = info[title];
+  const desc = document.getElementById("description");
+  const menu = document.getElementById("menu");
+
+  desc.innerText = data ? data.description : "";
+  menu.innerHTML = "";
+
+  if (data) {
+    data.menu.forEach(item => {
+      const li = document.createElement("li");
+      if (item.startsWith("⭐")) {
+        li.innerHTML = `<span class="highlight">${item.replace("⭐", "")}</span>`;
+      } else {
+        li.innerText = item;
+      }
+      menu.appendChild(li);
+    });
+  }
+
+  document.getElementById("modal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+  document.body.style.overflow = "auto";
+
+}
+</script>
+
+</body>
+</html>
